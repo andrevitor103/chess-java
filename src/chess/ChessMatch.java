@@ -3,7 +3,9 @@ package chess;
 import boardgame.Board;
 import boardgame.Piecie;
 import boardgame.Position;
+import chess.pieces.Bishop;
 import chess.pieces.Pawn;
+import chess.pieces.Rook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,13 +71,20 @@ public class ChessMatch {
         Piecie capturedPiece = this.board.removePiece(target.toPosition());
         this.board.movePiece(target.toPosition(), piece);
 
+        System.out.println(this.currentPlayer);
+        this.nextTurn();
         if (capturedPiece == null) {
             return null;
         }
         this.piecesOnTheBoard.remove(capturedPiece);
         this.capturedPieces.add(capturedPiece);
-        return (ChessPiece) capturedPieces;
+        return (ChessPiece) capturedPiece;
     }
+
+    private void nextTurn() {
+        this.currentPlayer = (this.currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
+    }
+
     private void initialize() {
         this.addPieceInBoard('a', 2, new Pawn(board, Color.WHITE, this));
         this.addPieceInBoard('b', 2, new Pawn(board, Color.WHITE, this));
@@ -85,5 +94,23 @@ public class ChessMatch {
         this.addPieceInBoard('f', 2, new Pawn(board, Color.WHITE, this));
         this.addPieceInBoard('g', 2, new Pawn(board, Color.WHITE, this));
         this.addPieceInBoard('h', 2, new Pawn(board, Color.WHITE, this));
+        this.addPieceInBoard('d', 6, new Bishop(board, Color.WHITE, this));
+        this.addPieceInBoard('f', 3, new Bishop(board, Color.WHITE, this));
+        this.addPieceInBoard('a', 1, new Rook(board, Color.WHITE, this));
+        this.addPieceInBoard('h', 1, new Rook(board, Color.WHITE, this));
+
+
+        this.addPieceInBoard('a', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('b', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('c', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('d', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('e', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('f', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('g', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('h', 7, new Pawn(board, Color.BLACK, this));
+        this.addPieceInBoard('c', 6, new Bishop(board, Color.BLACK, this));
+        this.addPieceInBoard('f', 6, new Bishop(board, Color.BLACK, this));
+        this.addPieceInBoard('a', 8, new Rook(board, Color.BLACK, this));
+        this.addPieceInBoard('h', 8, new Rook(board, Color.BLACK, this));
     }
 }
