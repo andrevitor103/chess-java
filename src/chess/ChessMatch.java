@@ -3,9 +3,7 @@ package chess;
 import boardgame.Board;
 import boardgame.Piecie;
 import boardgame.Position;
-import chess.pieces.Bishop;
-import chess.pieces.Pawn;
-import chess.pieces.Rook;
+import chess.pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,10 +92,14 @@ public class ChessMatch {
         this.addPieceInBoard('f', 2, new Pawn(board, Color.WHITE, this));
         this.addPieceInBoard('g', 2, new Pawn(board, Color.WHITE, this));
         this.addPieceInBoard('h', 2, new Pawn(board, Color.WHITE, this));
-        this.addPieceInBoard('d', 6, new Bishop(board, Color.WHITE, this));
-        this.addPieceInBoard('f', 3, new Bishop(board, Color.WHITE, this));
+        this.addPieceInBoard('c', 1, new Bishop(board, Color.WHITE, this));
+        this.addPieceInBoard('f', 1, new Bishop(board, Color.WHITE, this));
         this.addPieceInBoard('a', 1, new Rook(board, Color.WHITE, this));
         this.addPieceInBoard('h', 1, new Rook(board, Color.WHITE, this));
+        this.addPieceInBoard('b', 1, new Kninght(board, Color.WHITE, this));
+        this.addPieceInBoard('g', 1, new Kninght(board, Color.WHITE, this));
+        this.addPieceInBoard('d', 1, new Queen(board, Color.WHITE, this));
+        this.addPieceInBoard('e', 1, new King(board, Color.WHITE, this));
 
 
         this.addPieceInBoard('a', 7, new Pawn(board, Color.BLACK, this));
@@ -108,9 +110,13 @@ public class ChessMatch {
         this.addPieceInBoard('f', 7, new Pawn(board, Color.BLACK, this));
         this.addPieceInBoard('g', 7, new Pawn(board, Color.BLACK, this));
         this.addPieceInBoard('h', 7, new Pawn(board, Color.BLACK, this));
-        this.addPieceInBoard('c', 6, new Bishop(board, Color.BLACK, this));
-        this.addPieceInBoard('f', 6, new Bishop(board, Color.BLACK, this));
+        this.addPieceInBoard('c', 8, new Bishop(board, Color.BLACK, this));
+        this.addPieceInBoard('f', 8, new Bishop(board, Color.BLACK, this));
         this.addPieceInBoard('a', 8, new Rook(board, Color.BLACK, this));
         this.addPieceInBoard('h', 8, new Rook(board, Color.BLACK, this));
+        this.addPieceInBoard('b', 8, new Kninght(board, Color.BLACK, this));
+        this.addPieceInBoard('g', 8, new Kninght(board, Color.BLACK, this));
+        this.addPieceInBoard('d', 8, new Queen(board, Color.BLACK, this));
+        this.addPieceInBoard('e', 8, new King(board, Color.BLACK, this));
     }
 }
