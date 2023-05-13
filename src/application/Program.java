@@ -13,7 +13,7 @@ public class Program {
 		System.out.println("Óla mundo do Java");
 		Scanner sc = new Scanner(System.in);
 		ChessMatch chessMatch = new ChessMatch();
-		Map<Color, List<ChessPiece>> capturedForPlayer = new HashMap<>();
+		Map<Color, List<ChessPiece>> capturedForPlayer = new EnumMap<>(Color.class);
 
 		while (true) {
 			try {
