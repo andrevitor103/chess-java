@@ -20,7 +20,7 @@ public class Rook extends ChessPiece {
         System.out.println(position);
 
         positionToEvaluate.setValues(this.position.getRow() + 1, this.position.getColumn());
-        while( this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))) {
+        while(acceptablePosition(positionToEvaluate)) {
             mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             if (this.chessMatch.isThereOpponentPiece(positionToEvaluate)) {
                 break;
@@ -29,7 +29,7 @@ public class Rook extends ChessPiece {
         }
 
         positionToEvaluate.setValues(this.position.getRow() - 1, this.position.getColumn());
-        while(this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))) {
+        while(acceptablePosition(positionToEvaluate)) {
             mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             if (this.chessMatch.isThereOpponentPiece(positionToEvaluate)) {
                 break;
@@ -38,7 +38,7 @@ public class Rook extends ChessPiece {
         }
 
         positionToEvaluate.setValues(this.position.getRow(), this.position.getColumn() + 1);
-        while(this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))) {
+        while(acceptablePosition(positionToEvaluate)) {
             mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             if (this.chessMatch.isThereOpponentPiece(positionToEvaluate)) {
                 break;
@@ -47,7 +47,7 @@ public class Rook extends ChessPiece {
         }
 
         positionToEvaluate.setValues(this.position.getRow(), this.position.getColumn() - 1);
-        while(this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))) {
+        while(acceptablePosition(positionToEvaluate)) {
             mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             if (this.chessMatch.isThereOpponentPiece(positionToEvaluate)) {
                 break;
@@ -56,6 +56,13 @@ public class Rook extends ChessPiece {
         }
 
         return mat;
+    }
+
+    private boolean acceptablePosition(Position positionToEvaluate) {
+        return (
+                this.getBoard().positionExists(positionToEvaluate) &&
+                (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))
+        );
     }
 
     @Override

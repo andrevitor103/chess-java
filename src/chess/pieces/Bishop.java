@@ -22,90 +22,41 @@ public class Bishop extends ChessPiece {
         Position positionToEvaluate = new Position(0,0);
         System.out.println(position);
         positionToEvaluate.setValues(this.position.getRow() - 1, this.position.getColumn() + 1);
-        while ((this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || (this.chessMatch.isThereOpponentPiece(positionToEvaluate))) )) {
+        while ( acceptablePosition(positionToEvaluate) ) {
             System.out.println(positionToEvaluate);
-            if (this.getBoard().positionExists(positionToEvaluate)) {
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( !this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    break;
-                }
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                     mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                     break;
-                }
-
-                if (( !this.getBoard().thereIsAPiece(positionToEvaluate) ) || ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                }
-            }
+            mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             positionToEvaluate.setValues(positionToEvaluate.getRow() - 1, positionToEvaluate.getColumn() + 1);
         }
 
         positionToEvaluate.setValues(this.position.getRow() - 1, this.position.getColumn() - 1);
-        while ((this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || (this.chessMatch.isThereOpponentPiece(positionToEvaluate))) )) {
+        while ( acceptablePosition(positionToEvaluate) ) {
             System.out.println(positionToEvaluate);
-            if (this.getBoard().positionExists(positionToEvaluate)) {
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( !this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    break;
-                }
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                     mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                     break;
-                }
-
-                if (( !this.getBoard().thereIsAPiece(positionToEvaluate) ) || ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                }
-            }
+            mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             positionToEvaluate.setValues(positionToEvaluate.getRow() - 1, positionToEvaluate.getColumn() - 1);
         }
 
         positionToEvaluate.setValues(this.position.getRow() + 1, this.position.getColumn() + 1);
-        while ((this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || (this.chessMatch.isThereOpponentPiece(positionToEvaluate))) )) {
+        while ( acceptablePosition(positionToEvaluate) ) {
             System.out.println(positionToEvaluate);
-            if (this.getBoard().positionExists(positionToEvaluate)) {
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( !this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    break;
-                }
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                     mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                     break;
-                }
-
-                if (( !this.getBoard().thereIsAPiece(positionToEvaluate) ) || ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                }
-            }
+            mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             positionToEvaluate.setValues(positionToEvaluate.getRow() + 1, positionToEvaluate.getColumn() + 1);
         }
 
         positionToEvaluate.setValues(this.position.getRow() + 1, this.position.getColumn() - 1);
-        while ((this.getBoard().positionExists(positionToEvaluate) && (!this.getBoard().thereIsAPiece(positionToEvaluate) || (this.chessMatch.isThereOpponentPiece(positionToEvaluate))) )) {
+        while ( acceptablePosition(positionToEvaluate) ) {
             System.out.println(positionToEvaluate);
-            if (this.getBoard().positionExists(positionToEvaluate)) {
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( !this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    break;
-                }
-
-                 if (( this.getBoard().thereIsAPiece(positionToEvaluate) ) && ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                     mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                     break;
-                }
-
-                if (( !this.getBoard().thereIsAPiece(positionToEvaluate) ) || ( this.chessMatch.isThereOpponentPiece(positionToEvaluate)) ) {
-                    mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
-                }
-            }
+            mat[positionToEvaluate.getRow()][positionToEvaluate.getColumn()] = true;
             positionToEvaluate.setValues(positionToEvaluate.getRow() + 1, positionToEvaluate.getColumn() - 1);
         }
 
         return mat;
+    }
+
+    private boolean acceptablePosition(Position positionToEvaluate) {
+        return (
+                this.getBoard().positionExists(positionToEvaluate) &&
+                (!this.getBoard().thereIsAPiece(positionToEvaluate) || this.chessMatch.isThereOpponentPiece(positionToEvaluate))
+        );
     }
 
     @Override
